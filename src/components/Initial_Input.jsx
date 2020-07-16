@@ -18,13 +18,10 @@ const Login = () => {
         />
       </div>
       <div>
-        buttonDisabled() (
-          return (
-            <button
-              className="buttonPlay" type="button" data-testid="btn-play" disabled
-            >Jogar
-            </button>
-          );)
+        <button
+          className="buttonPlay" type="button" data-testid="btn-play" disabled
+        >Jogar
+        </button>
       </div>
     </div>
   );
