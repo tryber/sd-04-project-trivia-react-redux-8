@@ -18,10 +18,10 @@ const Login = () => {
         />
       </div>
       <div>
-            <button
-              className="buttonPlay" type="button" data-testid="btn-play" disabled
-            >Jogar
-            </button>
+        <button
+          className="buttonPlay" type="button" data-testid="btn-play" disabled
+        >Jogar
+        </button>
       </div>
     </div>
   );
