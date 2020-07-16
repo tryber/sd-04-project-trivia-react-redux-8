@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { AddAssignment } from '../actions/index';
-
+import { PropTypes } from 'prop-types';
 
 
 const Login = (props) => {
-  console.log(props)
-  const { add, Id, Email } = props
+  const { add, Id, Email } = props;
   return (
     <div>
       <div>
@@ -22,22 +21,25 @@ const Login = (props) => {
         />
       </div>
       <div>
-        {console.log(Email)}
-        {Email == "" ? (
+        {Email === '' ? (
           <button
             className="buttonPlay" type="button" data-testid="btn-play" disabled
           >Jogar
           </button>
         ) : (
-          <button
-            className="buttonPlay" type="button" data-testid="btn-play"
-          >Jogar
-          </button>
+          <button className="buttonPlay" type="button" data-testid="btn-play">Jogar</button>
         )}
       </div>
     </div>
   );
 };
+
+Login.propTypes = {
+  Email: PropTypes.string,
+  Id: PropTypes.string,
+  add: PropTypes.func
+}
+
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
