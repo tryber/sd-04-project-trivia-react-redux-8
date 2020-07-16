@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../trivia.png';
 
-export default const StartPage = () => (
+const StartPage = () => (
   <div className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
     <Link to="/login">
@@ -11,3 +11,5 @@ export default const StartPage = () => (
     </Link>
   </div>
 );
+
+export default StartPage;
