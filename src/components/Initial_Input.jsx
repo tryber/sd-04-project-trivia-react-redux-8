@@ -35,10 +35,10 @@ const Login = (props) => {
 };
 
 Login.propTypes = {
-  Email: PropTypes.string,
-  Id: PropTypes.string,
-  add: PropTypes.func
-}
+  Email: PropTypes.string.isRequired,
+  Id: PropTypes.string.isRequired,
+  add: PropTypes.func.isRequired,
+};
 
 
 const mapStateToProps = (state) => ({
