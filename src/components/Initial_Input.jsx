@@ -13,9 +13,9 @@ const Login = () => {
       </div>
       <div>
         <input
-            data-testid="input-player-name" className="box" type="text" value={name}
-            placeholder="Nome Jogador"
-          />
+          data-testid="input-player-name" className="box" type="text" value={name}
+          placeholder="Nome Jogador"
+        />
       </div>
       <div>
         buttonDisabled() (
