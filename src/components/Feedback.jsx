@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
-const Feedback = () => {
-  // const { acertos, pontos, nome, score } = props;
-  const nome = 'nome';
-  const score = 'score';
-  const acertos = 'acertos';
-  const pontos = 'pontos';
+const Feedback = (props) => {
+  const { acertos, pontos, nome, score } = props;
+  //  const nome = 'nome';
+  //  const score = 'score';
+  //  const acertos = 'acertos';
+  //  const pontos = 'pontos';
 
   return (
     <div>
@@ -34,4 +35,11 @@ const Feedback = () => {
   );
 };
 
-export default Feedback;
+mapStateToProps = (state) => ({
+  nome: state.nome,
+  score: state.score,
+  acertos: state.acertos,
+  pontos: state.pontos,
+});
+
+export default connect(mapStateToProps)(Feedback);
