@@ -48,5 +48,5 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   add: (e) => dispatch(AddAssignment(e.target)),
 });
-
+//teste
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
