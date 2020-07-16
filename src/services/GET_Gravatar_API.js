@@ -1,4 +1,4 @@
-//biblioteca crypto-js com o uso MD5 requerido
+// biblioteca crypto-js com o uso MD5 requerido
 import MD5 from 'crypto-js/md5';
 
 const GET_GRAVATAR_API = (email) => {
