@@ -5,9 +5,7 @@ const INITIAL_STATE = {
 
 function listaReducers(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'ID':
-      return { ...state, [action.name]: action.value };
-    case 'EMAIL':
+    case 'INPUT':
       return { ...state, [action.name]: action.value };
     default:
       return state;
