@@ -12,14 +12,15 @@ const BtnFalse = () => (
 );
 
 const BtnTrue = (token, getToken, login) => {
-  const realLogin = (tokenreal) => {
+  const Log = (tokenreal) => {
     getToken();
     login(tokenreal);
   };
 
   return (
-    <button className="buttonPlay" type="button"
-      onClick={() => realLogin(token)} data-testid="btn-play">Jogar</button>
+    <button className="buttonPlay" type="button"onClick={() => Log(token)} data-testid="btn-play">
+      Jogar
+    </button>
   );
 };
 
