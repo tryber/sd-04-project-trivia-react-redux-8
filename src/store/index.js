@@ -2,11 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import listaReducers from '../reducers';
 
-export const rootReducer = combineReducers({ listaReducers }, applyMiddleware(thunk));
+export const rootReducer = combineReducers({ listaReducers });
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = applyMiddleware(thunk)(createStore)(rootReducer, devTools)
 
 export default store;
