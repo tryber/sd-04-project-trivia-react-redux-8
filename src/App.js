@@ -4,6 +4,8 @@ import './App.css';
 import GameScreen from './components/game_screen';
 import Login from './components/Initial_Input';
 import StartPage from './components/startPage';
+import Config from './components/Config';
+import ButtonConfig from './components/ButtonConfig';
 import Feedback from './components/Feedback';
 
 export default function App() {
@@ -13,6 +15,8 @@ export default function App() {
         <Route exact path="/" component={StartPage} />
         <Route path="/login" component={Login} />
         <Route path="/game" component={GameScreen} />
+        <Route path="/config" component={Config} />
+        <Route path="/config" component={ButtonConfig} />
         <Route path="/feedback" component={Feedback} />
       </Switch>
     </div>
