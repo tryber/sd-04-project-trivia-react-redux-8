@@ -53,7 +53,6 @@ Login.propTypes = {
   Email: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
   add: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
   getToken: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   shouldRedirect: PropTypes.bool.isRequired,
