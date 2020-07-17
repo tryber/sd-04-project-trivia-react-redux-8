@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { AddAssignment } from '../actions/index';
-
+import { loginApi } from '../actions/index';
 
 const Login = (props) => {
-  const { add, Id, Email } = props;
+  const { add, Id, Email, login } = props;
   return (
     <div>
       <div>
@@ -27,9 +27,12 @@ const Login = (props) => {
           >Jogar
           </button>
         ) : (
-          <button className="buttonPlay" type="button" data-testid="btn-play">Jogar</button>
+          <button className="buttonPlay" type="button" onClick={login} data-testid="btn-play">
+            Jogar
+          </button>
         )}
       </div>
+
     </div>
   );
 };
@@ -38,6 +41,7 @@ Login.propTypes = {
   Email: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
   add: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 
@@ -47,6 +51,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   add: (e) => dispatch(AddAssignment(e.target)),
+  login: () => dispatch(loginApi()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

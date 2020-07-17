@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
   Id: '',
   Email: '',
-  isFetching: true /* Teste */,
+  isFetching: false,
+  data: [],
 };
 
 function listaReducers(state = INITIAL_STATE, action) {
@@ -15,7 +16,7 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'CATEGORIA':
       return { ...state, [action.name]: action.value };
     case 'SUCCESS_API':
-      return { ...state, isFething: false, data: action.results };
+      return { ...state, isFething: false, data: action.data };
     default:
       return state;
   }
