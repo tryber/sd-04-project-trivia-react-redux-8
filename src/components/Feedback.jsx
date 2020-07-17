@@ -1,4 +1,5 @@
 import React from 'react';
+// import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
 const Feedback = () => {
@@ -33,5 +34,12 @@ const Feedback = () => {
     </div>
   );
 };
+
+/* mapStateToProps = (state) => ({
+  nome: state.nome,
+  score: state.score,
+  acertos: state.acertos,
+  pontos: state.pontos,
+}); */
 
 export default Feedback;
