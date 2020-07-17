@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { AddAssignment } from '../actions/index';
 import { loginApi } from '../actions/index';
+import ButtonConfig from '../components/ButtonConfig';
 
 const Login = (props) => {
   const { add, Id, Email, login } = props;
   return (
     <div>
+      <Link><ButtonConfig /></Link>
       <div>
         <input
           data-testid="input-gravatar-email" name="Email" className="box" type="email" value={Email}
@@ -21,10 +24,9 @@ const Login = (props) => {
         />
       </div>
       <div>
-        {Email === '' ? (
-          <button
-            className="buttonPlay" type="button" data-testid="btn-play" disabled
-          >Jogar
+        {Email === '' || Id === '' ? (
+          <button className="buttonPlay" type="button" data-testid="btn-play" disabled>
+            Jogar
           </button>
         ) : (
           <button className="buttonPlay" type="button" onClick={login} data-testid="btn-play">
