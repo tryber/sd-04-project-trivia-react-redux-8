@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   isFetching: false,
   data: [],
   token:'',
-  shouldRedirect: false
+  shouldRedirect: false,
 };
 
 function listaReducers(state = INITIAL_STATE, action) {
