@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   Id: '',
   Email: '',
-  isFetching: true, /* Teste */
+  isFetching: true /* Teste */,
 };
 
 function listaReducers(state = INITIAL_STATE, action) {
