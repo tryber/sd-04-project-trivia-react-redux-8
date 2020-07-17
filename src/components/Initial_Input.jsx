@@ -25,7 +25,7 @@ const BtnTrue = (token, getToken, login) => {
 };
 
 const Login = (props) => {
-  const { add, Id, Email, login, getToken, token, shouldRedirect, data } = props;
+  const { add, Id, Email, login, getToken, token, shouldRedirect } = props;
   if (shouldRedirect) return <Redirect to="/config/" />;
   return (
     <div>
