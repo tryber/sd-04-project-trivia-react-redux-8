@@ -24,7 +24,7 @@ const Login = (props) => {
         />
       </div>
       <div>
-        {Email === '' ? (
+        {Email === '' || Id === ''? (
           <button className="buttonPlay" type="button" data-testid="btn-play" disabled>
             Jogar
           </button>
