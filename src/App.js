@@ -6,6 +6,7 @@ import Login from './components/Initial_Input';
 import StartPage from './components/startPage';
 import Config from './components/Config';
 import ButtonConfig from './components/ButtonConfig';
+import Feedback from './components/Feedback';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/game" component={GameScreen} />
         <Route path="/config" component={Config} />
         <Route path="/config" component={ButtonConfig} />
+        <Route path="/feedback" component={Feedback} />
       </Switch>
     </div>
   );

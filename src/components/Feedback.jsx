@@ -1,6 +1,5 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Feedback = () => {
   // const { acertos, pontos, nome, score } = props;
@@ -29,17 +28,19 @@ const Feedback = () => {
       <h3 data-testid="feedback-total-question">`Você acertou um total de ${acertos}!`</h3>
       <h3 data-testid="feedback-total-score">`Um total de ${pontos}` </h3>
 
-      {/* <Link to="/ranking" className="ranking">VER RANKING</Link>
-      <Link to="/">JOGAR NOVAMENTE</Link> */}
+      <Link to="/ranking" className="ranking">
+        VER RANKING
+      </Link>
+      <Link to="/">JOGAR NOVAMENTE</Link>
     </div>
   );
 };
 
-/* mapStateToProps = (state) => ({
-  nome: state.nome,
-  score: state.score,
-  acertos: state.acertos,
-  pontos: state.pontos,
-}); */
+// mapStateToProps = (state) => ({
+//   nome: state.nome,
+//   score: state.score,
+//   acertos: state.acertos,
+//   pontos: state.pontos,
+// });
 
 export default Feedback;
