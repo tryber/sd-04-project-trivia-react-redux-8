@@ -27,8 +27,8 @@ const Login = (props) => {
           >Jogar
           </button>
         ) : (
-          <button className="buttonPlay" type="button" onClick={login} data-testid="btn-play"
-          >Jogar
+          <button className="buttonPlay" type="button" onClick={login} data-testid="btn-play">
+            Jogar
           </button>
         )}
       </div>
