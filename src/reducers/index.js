@@ -7,10 +7,8 @@ const INITIAL_STATE = {
 function listaReducers(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'REQUEST_API':
-    return { ...state, isFetching: true }
-    case 'ID':
-      return { ...state, [action.name]: action.value };
-    case 'DIFICULTY':
+      return { ...state, isFetching: true };
+    case 'INPUT':
       return { ...state, [action.name]: action.value };
     case 'TYPE':
       return { ...state, [action.name]: action.value };
