@@ -27,7 +27,10 @@ const Login = (props) => {
           >Jogar
           </button>
         ) : (
-          <button className="buttonPlay" type="button"  onClick={ login } data-testid="btn-play">Jogar</button>
+          <button className="buttonPlay" type="button"  
+            onClick={login} data-testid="btn-play"
+          >Jogar
+          </button>
         )}
       </div>
 
@@ -39,6 +42,7 @@ Login.propTypes = {
   Email: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
   add: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
 };
 
 

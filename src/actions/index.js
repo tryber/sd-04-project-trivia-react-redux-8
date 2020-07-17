@@ -9,7 +9,7 @@ export const successApi = (data) => ({ type: 'SUCCESS_API', data });
 export function loginApi() {
   console.log('funciona loginApi');
   return (dispatch) => {
-    console.log('chegou no reuturn')
+    console.log('chegou no reuturn');
     dispatch(requestApi());
     return getTriviaApi().then((data) => dispatch(successApi(data)));
   };
