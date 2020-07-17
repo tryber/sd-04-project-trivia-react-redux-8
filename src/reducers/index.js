@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   Email: '',
   isFetching: false,
   data: [],
-  token:'',
+  token: '',
   shouldRedirect: false,
 };
 

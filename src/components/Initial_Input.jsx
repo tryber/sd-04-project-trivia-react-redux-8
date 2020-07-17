@@ -10,22 +10,22 @@ import ButtonConfig from '../components/ButtonConfig';
 const BtnFalse = () => (
   <button className="buttonPlay" type="button" data-testid="btn-play" disabled>Jogar</button>
 );
-  
+
 const BtnTrue = (token, getToken, login) => {
   const realLogin = (tokenreal) => {
-  getToken();
-  login(tokenreal);
+    getToken();
+    login(tokenreal);
   };
 
   return (
-    <button className="buttonPlay" type="button" onClick={() => 
-      realLogin(token)} data-testid="btn-play">Jogar</button>
+    <button className="buttonPlay" type="button"
+      onClick={() => realLogin(token)} data-testid="btn-play">Jogar</button>
   );
 };
 
 const Login = (props) => {
-  const { add, Id, Email, login, getToken, token, shouldRedirect, data} = props;
-  if (shouldRedirect) return <Redirect to='/config/' />
+  const { add, Id, Email, login, getToken, token, shouldRedirect, data } = props;
+  if (shouldRedirect) return <Redirect to="/config/" />;
   return (
     <div>
       <Link><ButtonConfig /></Link>
@@ -56,7 +56,7 @@ Login.propTypes = {
   getToken: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   shouldRedirect: PropTypes.bool.isRequired,
-  token: PropTypes.string.isRequired
+  token: PropTypes.string.isRequired,
 };
 
 
