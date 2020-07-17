@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 
-const Feedback = (props) => {
+const Feedback = () => {
   // const { acertos, pontos, nome, score } = props;
   const nome = 'nome';
   const score = 'score';
