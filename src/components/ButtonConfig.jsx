@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const btnSettings = (props) => {
   const bntSet = props;
@@ -11,4 +12,4 @@ const btnSettings = (props) => {
   );
 };
 
-exports default btnSettings;
+export default btnSettings;
