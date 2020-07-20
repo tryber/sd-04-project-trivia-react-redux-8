@@ -12,10 +12,11 @@ const BtnFalse = () => (
 );
 
 const BtnTrue = (token, getToken, login, getGravatar, Email) => {
-  const Log = (tokenreal) => {
+  const Log = (token) => {
     getToken();
+    localStorage.setItem("token", token);
     getGravatar(Email);
-    login(tokenreal);
+    login(token);
   };
 
   return (
@@ -27,7 +28,7 @@ const BtnTrue = (token, getToken, login, getGravatar, Email) => {
 
 const Login = (props) => {
   const { add, Id, Email, login, getToken, token, shouldRedirect, getGravatar } = props;
-  if (shouldRedirect) return <Redirect to="/config/" />;
+  if (shouldRedirect) return <Redirect to="/game/" />;
   return (
     <div>
       <Link><ButtonConfig /></Link>

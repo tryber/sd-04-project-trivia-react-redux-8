@@ -1,16 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Header = () => (
-  <div>
-    <h3 data-testid="header-player-name">Nome</h3>
-    <p data-testid="header-score">Score</p>
-    <img
-      data-testid="header-profile-picture"
-      src="https://www.gravatar.com/avatar/2d3bf5b67282f5f466e503d7022abcf3"
-      alt="Profile"
-      /* um dia será a imagem que está no state, obtida via API */
-    />
-  </div>
-);
+const Header = (props) => {
+  const { imageSrc, Id } = props;
+  return (
+    <div>
+      <h3 data-testid="header-player-name">Jogador: {Id}</h3>
+      <p data-testid="header-score">Score</p>
+      <img data-testid="header-profile-picture" src={imageSrc} alt="Profile" />
+    </div>
+  );
+};
 
-export default Header;
+const mapStateToProps = (state) => ({
+  ...state.listaReducers,
+});
+
+export default connect(mapStateToProps)(Header);
