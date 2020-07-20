@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -11,6 +12,11 @@ const Header = (props) => {
     </div>
   );
 };
+
+Header.propTypes = {
+  Id: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string.isRequired
+}
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,

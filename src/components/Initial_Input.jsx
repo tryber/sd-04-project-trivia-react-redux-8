@@ -12,11 +12,10 @@ const BtnFalse = () => (
 );
 
 const BtnTrue = (token, getToken, login, getGravatar, Email) => {
-  const Log = (token) => {
+  const Log = (tokenReal) => {
     getToken();
-    localStorage.setItem("token", token);
     getGravatar(Email);
-    login(token);
+    login(tokenReal);
   };
 
   return (
@@ -59,6 +58,7 @@ Login.propTypes = {
   login: PropTypes.func.isRequired,
   shouldRedirect: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
+  getGravatar: PropTypes.func.isRequired,
 };
 
 
