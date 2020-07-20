@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { AddAssignment } from '../actions/index';
+import { AddAssignment, successApiGravatar } from '../actions/index';
 import { loginApi, getTokenApi } from '../actions/index';
 import ButtonConfig from '../components/ButtonConfig';
 
@@ -11,10 +11,11 @@ const BtnFalse = () => (
   <button className="buttonPlay" type="button" data-testid="btn-play" disabled>Jogar</button>
 );
 
-const BtnTrue = (token, getToken, login) => {
-  const Log = (tokenreal) => {
+const BtnTrue = (token, getToken, login, getGravatar, Email) => {
+  const Log = (tokenReal) => {
     getToken();
-    login(tokenreal);
+    getGravatar(Email);
+    login(tokenReal);
   };
 
   return (
@@ -25,8 +26,8 @@ const BtnTrue = (token, getToken, login) => {
 };
 
 const Login = (props) => {
-  const { add, Id, Email, login, getToken, token, shouldRedirect } = props;
-  if (shouldRedirect) return <Redirect to="/config/" />;
+  const { add, Id, Email, login, getToken, token, shouldRedirect, getGravatar } = props;
+  if (shouldRedirect) return <Redirect to="/game/" />;
   return (
     <div>
       <Link><ButtonConfig /></Link>
@@ -43,7 +44,7 @@ const Login = (props) => {
         />
       </div>
       <div>
-        {Email === '' || Id === '' ? (BtnFalse()) : (BtnTrue(token, getToken, login))}
+        {Email === '' || Id === '' ? (BtnFalse()) : (BtnTrue(token, getToken, login, getGravatar, Email))}
       </div>
     </div>
   );
@@ -57,6 +58,7 @@ Login.propTypes = {
   login: PropTypes.func.isRequired,
   shouldRedirect: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
+  getGravatar: PropTypes.func.isRequired,
 };
 
 
@@ -68,6 +70,7 @@ const mapDispatchToProps = (dispatch) => ({
   add: (e) => dispatch(AddAssignment(e.target)),
   login: (token) => dispatch(loginApi(token)),
   getToken: () => dispatch(getTokenApi()),
+  getGravatar: (Email) => dispatch(successApiGravatar(Email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

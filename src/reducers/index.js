@@ -1,3 +1,6 @@
+import getGravatarApi from '../services/GET_Gravatar_API';
+
+
 const INITIAL_STATE = {
   Id: '',
   Email: '',
@@ -5,6 +8,7 @@ const INITIAL_STATE = {
   data: [],
   token: '',
   shouldRedirect: false,
+  imageSrc: '',
 };
 
 function listaReducers(state = INITIAL_STATE, action) {
@@ -21,6 +25,8 @@ function listaReducers(state = INITIAL_STATE, action) {
       return { ...state, isFetching: false, shouldRedirect: true, data: action.data };
     case 'SUCCESS_API_TOKEN':
       return { ...state, isFetching: false, token: action.data };
+    case 'SUCCESS_API_GRAVATAR':
+      return { ...state, imageSrc: getGravatarApi(action.data) };
     default:
       return state;
   }
