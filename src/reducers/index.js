@@ -3,6 +3,8 @@ const INITIAL_STATE = {
   Email: '',
   isFetching: false,
   data: [],
+  token: '',
+  shouldRedirect: false,
 };
 
 function listaReducers(state = INITIAL_STATE, action) {
@@ -16,7 +18,9 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'CATEGORIA':
       return { ...state, [action.name]: action.value };
     case 'SUCCESS_API':
-      return { ...state, isFething: false, data: action.data };
+      return { ...state, isFetching: false, shouldRedirect: true, data: action.data };
+    case 'SUCCESS_API_TOKEN':
+      return { ...state, isFetching: false, token: action.data };
     default:
       return state;
   }
