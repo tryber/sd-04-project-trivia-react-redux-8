@@ -1,6 +1,5 @@
 import getTriviaApi from '../services/getTriviaApi';
 import GetTokenAPI from '../services/GET_TOKEN';
-import getGravatarApi from '../services/GET_Gravatar_API';
 
 export const requestApi = () => ({ type: 'REQUEST_API' });
 export const AddAssignment = ({ value, name }) => ({

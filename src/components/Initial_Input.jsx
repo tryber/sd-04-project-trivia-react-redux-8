@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { AddAssignment, getGravatarAPI, successApiGravatar } from '../actions/index';
+import { AddAssignment, successApiGravatar } from '../actions/index';
 import { loginApi, getTokenApi } from '../actions/index';
 import ButtonConfig from '../components/ButtonConfig';
 
