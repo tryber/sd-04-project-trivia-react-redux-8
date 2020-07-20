@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import { AddAssignment } from '../actions/index';
+import { AddAssignment, getGravatarAPI, successApiGravatar } from '../actions/index';
 import { loginApi, getTokenApi } from '../actions/index';
 import ButtonConfig from '../components/ButtonConfig';
 
@@ -11,9 +11,10 @@ const BtnFalse = () => (
   <button className="buttonPlay" type="button" data-testid="btn-play" disabled>Jogar</button>
 );
 
-const BtnTrue = (token, getToken, login) => {
+const BtnTrue = (token, getToken, login, getGravatar, Email) => {
   const Log = (tokenreal) => {
     getToken();
+    getGravatar(Email);
     login(tokenreal);
   };
 
@@ -25,7 +26,7 @@ const BtnTrue = (token, getToken, login) => {
 };
 
 const Login = (props) => {
-  const { add, Id, Email, login, getToken, token, shouldRedirect } = props;
+  const { add, Id, Email, login, getToken, token, shouldRedirect, getGravatar } = props;
   if (shouldRedirect) return <Redirect to="/config/" />;
   return (
     <div>
@@ -43,7 +44,7 @@ const Login = (props) => {
         />
       </div>
       <div>
-        {Email === '' || Id === '' ? (BtnFalse()) : (BtnTrue(token, getToken, login))}
+        {Email === '' || Id === '' ? (BtnFalse()) : (BtnTrue(token, getToken, login, getGravatar, Email))}
       </div>
     </div>
   );
@@ -68,6 +69,7 @@ const mapDispatchToProps = (dispatch) => ({
   add: (e) => dispatch(AddAssignment(e.target)),
   login: (token) => dispatch(loginApi(token)),
   getToken: () => dispatch(getTokenApi()),
+  getGravatar: (Email) => dispatch(successApiGravatar(Email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

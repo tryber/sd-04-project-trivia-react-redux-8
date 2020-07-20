@@ -1,5 +1,6 @@
 import getTriviaApi from '../services/getTriviaApi';
 import GetTokenAPI from '../services/GET_TOKEN';
+import getGravatarApi from '../services/GET_Gravatar_API';
 
 export const requestApi = () => ({ type: 'REQUEST_API' });
 export const AddAssignment = ({ value, name }) => ({
@@ -19,6 +20,8 @@ export const categoryQuestions = ({ value, name }) => ({
 });
 export const successApi = (data) => ({ type: 'SUCCESS_API', data });
 export const successApiToken = (data) => ({ type: 'SUCCESS_API_TOKEN', data });
+export const successApiGravatar = (data) => ({ type: 'SUCCESS_API_GRAVATAR', data });
+
 
 export function loginApi(token) {
   return (dispatch) => {
@@ -28,9 +31,7 @@ export function loginApi(token) {
 }
 
 export function getTokenApi() {
-  console.log('funciona loginApi');
   return (dispatch) => {
-    console.log('chegou no reuturn');
     dispatch(requestApi());
     return GetTokenAPI().then((data) => dispatch(successApiToken(data)));
   };
