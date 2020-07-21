@@ -7,7 +7,7 @@ export const AddAssignment = ({ value, name }) => ({
   value,
   name,
 });
-export const makingScore = ( score, timer, difficultyScore )  => ({
+export const makingScore = (score, timer, difficultyScore) => ({
   type: 'GOT_SCORE',
   score,
   timer,
@@ -19,8 +19,10 @@ export const difficultyAct = (dif) => ({
 });
 export const successApi = (data) => ({ type: 'SUCCESS_API', data });
 export const successApiToken = (data) => ({ type: 'SUCCESS_API_TOKEN', data });
-export const successApiGravatar = (data) => ({ type: 'SUCCESS_API_GRAVATAR', data });
-
+export const successApiGravatar = (data) => ({
+  type: 'SUCCESS_API_GRAVATAR',
+  data,
+});
 
 export function loginApi(token) {
   return (dispatch) => {

@@ -16,6 +16,7 @@ const Header = (props) => {
 Header.propTypes = {
   Id: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
