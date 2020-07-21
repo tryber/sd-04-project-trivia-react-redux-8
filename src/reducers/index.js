@@ -50,7 +50,7 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'DIFFICULTY':
       return { ...state, difficultyScore: difficulty(action.dif) };
     case 'NEXT_QUESTION':
-      return { ...state, index: action.index+1 };
+      return { ...state, index: (action.index + 1) };
     default:
       return state;
   }

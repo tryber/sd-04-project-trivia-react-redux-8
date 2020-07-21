@@ -28,7 +28,7 @@ export const successApiGravatar = (data) => ({
   type: 'SUCCESS_API_GRAVATAR',
   data,
 });
-export const nextPage = (index) => ({ type: 'NEXT_QUESTION', index })
+export const nextPage = (index) => ({ type: 'NEXT_QUESTION', index });
 
 export function loginApi(token) {
   return (dispatch) => {

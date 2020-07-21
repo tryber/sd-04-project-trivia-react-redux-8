@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React from 'react';
+import { connect } from 'react-redux';
 import Header from './header';
 import Perguntas from './Perguntas';
 import Respostas from './respostas';
-import { connect } from 'react-redux';
 import { nextPage } from '../actions/index.js'
 import Timer from './timer';
 
@@ -26,9 +27,14 @@ const GameScreen = (props) => {
   );
 };
 
-const mapStateToProps = (state) =>({
+GameScreen.propTypes = {
+  index: PropTypes.number.isRequired,
+  next: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
   ...state.listaReducers,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   next: (index) => dispatch(nextPage(index)),
