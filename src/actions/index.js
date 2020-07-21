@@ -7,6 +7,11 @@ export const AddAssignment = ({ value, name }) => ({
   value,
   name,
 });
+
+export const TimerTest = (timer) => ({
+  type: 'TIMER_CHANGE',
+  timer,
+});
 export const makingScore = (score, timer, difficultyScore) => ({
   type: 'GOT_SCORE',
   score,
