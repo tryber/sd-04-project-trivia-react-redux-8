@@ -2,16 +2,32 @@ import React from 'react';
 import Header from './header';
 import Perguntas from './Perguntas';
 import Respostas from './respostas';
+import { connect } from 'react-redux';
+import {nextPage} from '../actions/index.js'
 
-const GameScreen = () => (
-  <div>
-    <Header />
+const GameScreen = (props) => {
+  const { next, index } = props;
+
+  return (
     <div>
-      <Perguntas />
-      <Respostas />
+      <Header />
+      <div>
+        <Perguntas />
+        <Respostas />
+      </div>
+      <button data-testid="btn-next" className="buttonNext" onClick={() => next(index)}>
+        Próxima Pergunta
+      </button>
     </div>
-    <button>Próxima Pergunta</button>
-  </div>
-);
+  );
+};
 
-export default GameScreen;
+const mapStateToProps = (state) =>({
+  ...state.listaReducers,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  next: (index) => dispatch(nextPage(index)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
