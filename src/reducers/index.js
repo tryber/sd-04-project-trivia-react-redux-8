@@ -19,16 +19,15 @@ const difficulty = (dif) => {
     return 1;
   } else if (dif === 'medium') {
     return 2;
-  } else {
-    return 3;
   }
+  return 3;
 };
 
 const ScoreCalculator = (score, timer, difficultyScore) => {
   console.log(score);
   console.log(timer);
   console.log(difficultyScore);
-  const newScore = score + (10 + timer * difficultyScore);
+  const newScore = score + (10 + (timer * difficultyScore));
   return newScore;
 };
 
@@ -45,7 +44,7 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'SUCCESS_API_GRAVATAR':
       return { ...state, imageSrc: getGravatarApi(action.data) };
     case 'GOT_SCORE':
-      return { 
+      return {
           ...state,
           score: ScoreCalculator(
           action.score,
