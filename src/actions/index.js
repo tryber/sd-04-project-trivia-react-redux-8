@@ -7,15 +7,15 @@ export const AddAssignment = ({ value, name }) => ({
   value,
   name,
 });
-export const typeQuestions = ({ value, name }) => ({
-  type: 'TYPE',
-  value,
-  name,
+export const makingScore = ( score, timer, difficultyScore )  => ({
+  type: 'GOT_SCORE',
+  score,
+  timer,
+  difficultyScore,
 });
-export const categoryQuestions = ({ value, name }) => ({
-  type: 'CATEGORY',
-  value,
-  name,
+export const difficultyAct = (dif) => ({
+  type: 'DIFFICULTY',
+  dif,
 });
 export const successApi = (data) => ({ type: 'SUCCESS_API', data });
 export const successApiToken = (data) => ({ type: 'SUCCESS_API_TOKEN', data });
