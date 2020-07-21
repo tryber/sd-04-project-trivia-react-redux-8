@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { AddAssignment, successApiGravatar } from '../actions/index';
 import { loginApi, getTokenApi } from '../actions/index';
@@ -30,7 +30,7 @@ const Login = (props) => {
   if (shouldRedirect) return <Redirect to="/game/" />;
   return (
     <div>
-      <Link><ButtonConfig /></Link>
+      <ButtonConfig />
       <div>
         <input
           data-testid="input-gravatar-email" name="Email" className="box" type="email" value={Email}

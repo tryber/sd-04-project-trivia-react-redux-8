@@ -14,10 +14,7 @@ const Perguntas = (props) => {
 
 Perguntas.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.shape({
-      category: PropTypes.string.isRequired,
-      question: PropTypes.string.isRequired,
-    }).isRequired,
+    results: PropTypes.arrayOf(Object).isRequired,
   }).isRequired,
   index: PropTypes.number.isRequired,
 };

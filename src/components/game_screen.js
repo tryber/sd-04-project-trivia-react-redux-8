@@ -4,6 +4,7 @@ import Perguntas from './Perguntas';
 import Respostas from './respostas';
 import { connect } from 'react-redux';
 import {nextPage} from '../actions/index.js'
+import Timer from './timer';
 
 const GameScreen = (props) => {
   const { next, index } = props;
@@ -18,6 +19,9 @@ const GameScreen = (props) => {
       <button data-testid="btn-next" className="buttonNext" onClick={() => next(index)}>
         Próxima Pergunta
       </button>
+      <div>
+        <Timer />
+      </div>
     </div>
   );
 };
@@ -29,5 +33,6 @@ const mapStateToProps = (state) =>({
 const mapDispatchToProps = (dispatch) => ({
   next: (index) => dispatch(nextPage(index)),
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
