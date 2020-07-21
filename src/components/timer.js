@@ -16,15 +16,14 @@ const Timer = (props) => {
 };
 
 Timer.propTypes = {
-  timer: PropTypes.number,
-  timerCount: PropTypes.func,
+  timer: PropTypes.number.isRequired,
+  timerCount: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    ...state.listaReducers,
-  };
-};
+const mapStateToProps = (state) => ({
+  ...state.listaReducers,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   timerCount: (timer) => dispatch(TimerTest(timer)),
 });
