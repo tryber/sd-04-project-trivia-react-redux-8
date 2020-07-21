@@ -5,7 +5,7 @@ import { makingScore, difficultyAct } from '../actions';
 
 const Click = (data, index, score, timer, difficultyScore, difficulty, gotScore) => {
   gotScore(score, timer, difficultyScore);
-}
+};
 
 const CorrectAnswer = (props) => {
   const { data, index, score, timer, difficultyScore, difficulty, gotScore } = props;
@@ -14,9 +14,10 @@ const CorrectAnswer = (props) => {
   difficulty(data.results[index].difficulty);
   return (
     <div>
-      <button 
+      <button
         onClick={() => Click(data, index, score, timer, difficultyScore, difficulty, gotScore)}
-        data-testid="correct-answer">{resposta.correct_answer}
+        data-testid="correct-answer"
+          >{resposta.correct_answer}
       </button>
     </div>
   );
@@ -24,9 +25,9 @@ const CorrectAnswer = (props) => {
 
 CorrectAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(PropTypes.string.isRequired)
+    results: PropTypes.arrayOf(PropTypes.string.isRequired),
   }).isRequired,
-  difficulty: PropTypes.func,
+  difficulty: PropTypes.func.isRequired,
   difficultyScore: PropTypes.number.isRequired,
   gotScore: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,

@@ -15,12 +15,8 @@ const WrongAnswer = (props) => {
 
 WrongAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(
-      incorrect_answers: PropTypes.arrayOf(
-        PropTypes.string.isRequired,
-      ).isRequired,
-    ).isRequired,
-  }),
+    results: PropTypes.arrayOf(PropTypes.string.isRequired),
+  }).isRequired,
   i: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
 }
