@@ -38,15 +38,15 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'INPUT':
       return { ...state, [action.name]: action.value };
     case 'SUCCESS_API':
-      return { ...state, isFetching: false, shouldRedirect: true, data: action.data, };
+      return { ...state, isFetching: false, shouldRedirect: true, data: action.data };
     case 'SUCCESS_API_TOKEN':
       return { ...state, isFetching: false, token: action.data };
     case 'SUCCESS_API_GRAVATAR':
       return { ...state, imageSrc: getGravatarApi(action.data) };
     case 'GOT_SCORE':
       return {
-          ...state,
-          score: ScoreCalculator(
+        ...state,
+        score: ScoreCalculator(
           action.score,
           action.timer,
           action.difficultyScore,
