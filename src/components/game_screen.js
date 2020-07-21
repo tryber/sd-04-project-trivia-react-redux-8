@@ -3,7 +3,7 @@ import Header from './header';
 import Perguntas from './Perguntas';
 import Respostas from './respostas';
 import { connect } from 'react-redux';
-import {nextPage} from '../actions/index.js'
+import { nextPage } from '../actions/index.js'
 import Timer from './timer';
 
 const GameScreen = (props) => {
