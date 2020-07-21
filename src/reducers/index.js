@@ -24,10 +24,7 @@ const difficulty = (dif) => {
 };
 
 const ScoreCalculator = (score, timer, difficultyScore) => {
-  console.log(score);
-  console.log(timer);
-  console.log(difficultyScore);
-  const newScore = score + (10 + (timer * difficultyScore));
+  const newScore = score + (10 + timer * difficultyScore);
   return newScore;
 };
 
@@ -37,8 +34,15 @@ function listaReducers(state = INITIAL_STATE, action) {
       return { ...state, isFetching: true };
     case 'INPUT':
       return { ...state, [action.name]: action.value };
+    case 'TIMER_CHANGE':
+      return { ...state, timer: action.timer };
     case 'SUCCESS_API':
-      return { ...state, isFetching: false, shouldRedirect: true, data: action.data };
+      return {
+        ...state,
+        isFetching: false,
+        shouldRedirect: true,
+        data: action.data,
+      };
     case 'SUCCESS_API_TOKEN':
       return { ...state, isFetching: false, token: action.data };
     case 'SUCCESS_API_GRAVATAR':

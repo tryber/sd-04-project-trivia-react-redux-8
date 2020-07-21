@@ -30,7 +30,7 @@ const Login = (props) => {
   if (shouldRedirect) return <Redirect to="/game/" />;
   return (
     <div>
-      <Link><ButtonConfig /></Link>
+      <ButtonConfig />
       <div>
         <input
           data-testid="input-gravatar-email" name="Email" className="box" type="email" value={Email}
