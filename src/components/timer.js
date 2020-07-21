@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { TimerTest } from '../actions';
@@ -14,11 +15,16 @@ const Timer = (props) => {
   );
 };
 
+Timer.propTypes = {
+  timer: PropTypes.number,
+  timerCount: PropTypes.func,
+};
+
 const mapStateToProps = (state) => {
   return {
-  ...state.listaReducers,
+    ...state.listaReducers,
+  };
 };
-}
 const mapDispatchToProps = (dispatch) => ({
   timerCount: (timer) => dispatch(TimerTest(timer)),
 });
