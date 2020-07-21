@@ -16,8 +16,8 @@ const CorrectAnswer = (props) => {
     <div>
       <button
         onClick={() => Click(data, index, score, timer, difficultyScore, difficulty, gotScore)}
-        data-testid="correct-answer"
-          >{resposta.correct_answer}
+        data-testid="correct-answer">
+          {resposta.correct_answer}
       </button>
     </div>
   );

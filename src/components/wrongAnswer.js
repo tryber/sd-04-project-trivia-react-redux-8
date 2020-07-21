@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ WrongAnswer.propTypes = {
   }).isRequired,
   i: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
