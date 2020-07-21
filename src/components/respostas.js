@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CorrectAnswer from './correctAnswer';
 import WrongAnswer from './wrongAnswer';
 
-const Respostas = (props) => {
+const Respostas = () => {
   return (
     <div>
       <CorrectAnswer />

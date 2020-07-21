@@ -17,7 +17,7 @@ Perguntas.propTypes = {
     results: PropTypes.shape({
       category: PropTypes.string.isRequired,
       question: PropTypes.string.isRequired,
-    }),
+    }).isRequired,
   }),
   index: PropTypes.number.isRequired,
 };

@@ -8,14 +8,14 @@ const Click = (data, index, score, timer, difficultyScore, difficulty, gotScore)
 }
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, difficultyScore, difficulty, gotScore} = props;
-  console.log((data.results[index].difficulty))
+  const { data, index, score, timer, difficultyScore, difficulty, gotScore } = props;
+  console.log((data.results[index].difficulty));
   const resposta = data.results[index];
   difficulty(data.results[index].difficulty);
   return (
     <div>
-      <button onClick={() =>
-        Click(data, index, score, timer, difficultyScore, difficulty, gotScore)}
+      <button 
+        onClick={() => Click(data, index, score, timer, difficultyScore, difficulty, gotScore)}
         data-testid="correct-answer">{resposta.correct_answer}
       </button>
     </div>
@@ -24,11 +24,14 @@ const CorrectAnswer = (props) => {
 
 CorrectAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf({
-      correct_answer: PropTypes.string.isRequired,
-    }),
-  }),
+    results: PropTypes.arrayOf(PropTypes.string.isRequired)
+  }).isRequired,
+  difficulty: PropTypes.func,
+  difficultyScore: PropTypes.number.isRequired,
+  gotScore: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  timer: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -37,7 +40,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   difficulty: (dif) => dispatch(difficultyAct(dif)),
-  gotScore:(score, timer, difficultyScore) => dispatch(makingScore(score, timer, difficultyScore))
+  gotScore: (score, timer, difficultyScore) => dispatch(makingScore(score, timer, difficultyScore)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CorrectAnswer);
