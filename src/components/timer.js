@@ -1,18 +1,20 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { TimerTest } from '../actions';
+import { TimerTest, freezeAct } from '../actions';
 
 const Timer = (props) => {
-  const { timer, timerCount } = props;
-  setTimeout(() => {
-    timerCount(timer - 1);
-  }, 1000);
+  const { timer, timerCount, freeze, freezeScreen } = props;
+  if (timer > 0 && freeze === false) {
+    setTimeout(() => {
+      timerCount(timer);
+    }, 1000);
+  }
   return (
-    <div>
-      <p>Timer: {timer}</p>
-    </div>
-  );
+  timer > 0 ? <p>Timer: {timer}</p> : <p>{freezeScreen()}Time's up</p>
+  )
+      
+
 };
 
 Timer.propTypes = {
@@ -26,6 +28,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   timerCount: (timer) => dispatch(TimerTest(timer)),
+  freezeScreen: () => {
+    dispatch(freezeAct());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Timer);
