@@ -35,7 +35,7 @@ const Feedback = (props) => {
   );
 };
 
-Feedback.protoTypes = {
+Feedback.ProtoTypes = {
   Id: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
