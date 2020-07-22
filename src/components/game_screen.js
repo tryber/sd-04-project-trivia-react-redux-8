@@ -37,9 +37,9 @@ const GameScreen = (props) => {
 };
 
 GameScreen.propTypes = {
-  freeze: PropTypes.bool,
+  freeze: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
-  next: PropTypes.func.isRequired
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

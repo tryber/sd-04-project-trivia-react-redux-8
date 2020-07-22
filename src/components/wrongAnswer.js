@@ -18,12 +18,12 @@ const WrongAnswer = (props) => {
 
 WrongAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf().isRequired
+    results: PropTypes.arrayOf(Object).isRequired,
   }).isRequired,
-  freeze: PropTypes.bool,
+  freeze: PropTypes.bool.isRequired,
   freezeScreen: PropTypes.func.isRequired,
   i: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired
+  index: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
