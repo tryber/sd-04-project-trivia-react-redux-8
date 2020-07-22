@@ -39,7 +39,6 @@ CorrectAnswer.propTypes = {
   data: PropTypes.shape({
     results: PropTypes.arrayOf(Object).isRequired,
   }).isRequired,
-  difficultyScore: PropTypes.number.isRequired,
   gotScore: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
