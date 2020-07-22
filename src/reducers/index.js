@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   imageSrc: '',
   index: 0,
   score: 0,
-  timer: 5,
+  timer: 30,
   freeze: false,
   question: 0,
 };

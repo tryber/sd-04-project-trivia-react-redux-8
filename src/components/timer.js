@@ -10,14 +10,12 @@ const Timer = (props) => {
       timerCount(timer);
     }, 1000);
   }
-  return (
-  timer > 0 ? <p>Timer: {timer}</p> : <p>{freezeScreen()}Time's up</p>
-  )
-      
-
+  return timer > 0 ? <p>Timer: {timer}</p> : <p>{freezeScreen()}Time's up</p>;
 };
 
 Timer.propTypes = {
+  freeze: PropTypes.bool,
+  freezeScreen: PropTypes.func,
   timer: PropTypes.number.isRequired,
   timerCount: PropTypes.func.isRequired,
 };

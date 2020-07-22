@@ -15,7 +15,7 @@ const CorrectAnswer = (props) => {
   return (
     <div>
       {freeze === true ? (
-        <button data-testid="correct-answer" disabled style={{border: "3px solid rgb(6, 240, 15)"}}>
+        <button data-testid="correct-answer" disabled style={{ border: '3px solid rgb(6, 240, 15)' }}>
           {resposta.correct_answer}
         </button>
       ) : (
@@ -32,12 +32,14 @@ const CorrectAnswer = (props) => {
 
 CorrectAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(Object).isRequired,
+    results: PropTypes.arrayOf().isRequired
   }).isRequired,
+  freeze: PropTypes.bool,
+  freezeScreen: PropTypes.func.isRequired,
   gotScore: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
-  timer: PropTypes.number.isRequired,
+  timer: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({

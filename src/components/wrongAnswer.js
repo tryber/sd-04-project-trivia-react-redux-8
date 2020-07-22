@@ -9,7 +9,7 @@ const WrongAnswer = (props) => {
   const resposta = data.results[index].incorrect_answers[i];
   return (
     <div>
-      {freeze === true ?<button data-testid style={{border: "3px solid rgb(255, 0, 0)"}} disabled={testid}>{resposta}</button> : (
+      {freeze === true ? <button data-testid style={{ border: '3px solid rgb(255, 0, 0)' }} disabled={testid}>{resposta}</button> : (
         <button onClick={freezeScreen} data-testid={testid}>{resposta}</button>
       )}
     </div>
@@ -18,10 +18,12 @@ const WrongAnswer = (props) => {
 
 WrongAnswer.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(Object).isRequired,
+    results: PropTypes.arrayOf().isRequired
   }).isRequired,
+  freeze: PropTypes.bool,
+  freezeScreen: PropTypes.func.isRequired,
   i: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -34,4 +36,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(WrongAnswer);
+export default connect(mapStateToProps, mapDispatchToProps)(WrongAnswer);
