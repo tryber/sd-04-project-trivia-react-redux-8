@@ -12,6 +12,8 @@ const INITIAL_STATE = {
   score: 0,
   timer: 30,
   acertos: 0,
+  freeze: false,
+  question: 0,
 };
 
 const difficulty = (dif) => {
@@ -35,7 +37,7 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'INPUT':
       return { ...state, [action.name]: action.value };
     case 'TIMER_CHANGE':
-      return { ...state, timer: action.timer };
+      return { ...state, timer: (action.timer - 1) };
     case 'SUCCESS_API':
       return { ...state, isFetching: false, shouldRedirect: true, data: action.data };
     case 'SUCCESS_API_TOKEN':
@@ -49,9 +51,11 @@ function listaReducers(state = INITIAL_STATE, action) {
         acertos: (action.acertos + 1), 
       };
     case 'NEXT_QUESTION':
-      return { ...state, index: (action.index + 1) };
+      return { ...state, index: (action.index + 1), freeze: false, timer: 30 };
     default:
       return state;
+    case 'FREEZE':
+      return { ...state, freeze: true };
   }
 }
 
