@@ -35,12 +35,12 @@ const Feedback = (props) => {
   );
 };
 
-Feedback.ProtoTypes = {
+Feedback.propTypes = {
   Id: PropTypes.string.isRequired,
+  acertos: PropTypes.number.isRequired,
   imageSrc: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
-  acertos: PropTypes.number.isRequired,
-};
+}
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
