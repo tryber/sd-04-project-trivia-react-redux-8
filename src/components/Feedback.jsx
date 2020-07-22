@@ -1,32 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Header from './header';
 
-const Feedback = () => {
-  // const { acertos, pontos, nome, score } = props;
-  const nome = 'nome';
-  const score = 'score';
-  const acertos = 'acertos';
-  const pontos = 'pontos';
-
+const Feedback = (props) => {
+  const {Id, score, imageSrc, acertos } = props;
   return (
     <div>
+      <Header />
       <div>
         <p className="plyer-name" data-testid="header-player-name">
-          `Jogador ${nome}`
+          `Jogador ${Id}`
         </p>
         <p className="pontos" data-testid="header-score">
           `Pontos ${score}`
         </p>
       </div>
       <img
-        src="http://www.abrhce.com.br/wp-content/uploads/2017/03/feedback.jpg"
+        src={`${imageSrc}`}
         alt="Minha Imagem"
         className="feedbackGravatar"
         data-testid="header-profile-picture"
       />
-      <h1>{score <= 2 ? 'PODERIA SER MELHOR' : 'MANDOU BEM'}</h1>
+      <h1>{acertos <= 2 ? 'PODERIA SER MELHOR' : 'MANDOU BEM'}</h1>
       <h3 data-testid="feedback-total-question">`Você acertou um total de ${acertos}!`</h3>
-      <h3 data-testid="feedback-total-score">`Um total de ${pontos}` </h3>
+      <h3 data-testid="feedback-total-score">`Um total de ${score}` </h3>
 
       <Link to="/ranking" className="ranking">
         VER RANKING
@@ -36,11 +35,15 @@ const Feedback = () => {
   );
 };
 
-// mapStateToProps = (state) => ({
-//   nome: state.nome,
-//   score: state.score,
-//   acertos: state.acertos,
-//   pontos: state.pontos,
-// });
+Feedback.protoTypes = {
+  Id: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  acertos: PropTypes.number.isRequired,
+}
 
-export default Feedback;
+const mapStateToProps = (state) => ({
+  ...state.listaReducers,
+});
+
+export default connect(mapStateToProps)(Feedback);

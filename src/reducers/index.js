@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   index: 0,
   score: 0,
   timer: 30,
+  acertos: 0,
 };
 
 const difficulty = (dif) => {
@@ -45,6 +46,7 @@ function listaReducers(state = INITIAL_STATE, action) {
       return {
         ...state,
         score: ScoreCalculator(action.score, action.timer, difficulty(action.difficulty)),
+        acertos: (action.acertos + 1), 
       };
     case 'NEXT_QUESTION':
       return { ...state, index: (action.index + 1) };

@@ -8,12 +8,13 @@ const Click = (
   timer,
   difficulty,
   gotScore,
+  acertos,
 ) => {
-  gotScore(score, timer, difficulty);
+  gotScore(score, timer, difficulty, acertos);
 };
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, gotScore } = props;
+  const { data, index, score, timer, gotScore, acertos } = props;
   const resposta = data.results[index];
   const difficulty = resposta.difficulty;
   return (
@@ -25,6 +26,7 @@ const CorrectAnswer = (props) => {
             timer,
             difficulty,
             gotScore,
+            acertos,
           )
         }
         data-testid="correct-answer"
@@ -50,8 +52,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  gotScore: (score, timer, difficulty) =>
-    dispatch(makingScore(score, timer, difficulty)),
+  gotScore: (score, timer, difficulty, acertos) =>
+    dispatch(makingScore(score, timer, difficulty, acertos)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CorrectAnswer);
