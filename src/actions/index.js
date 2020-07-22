@@ -12,15 +12,11 @@ export const TimerTest = (timer) => ({
   type: 'TIMER_CHANGE',
   timer,
 });
-export const makingScore = (score, timer, difficultyScore) => ({
+export const makingScore = (score, timer, difficulty) => ({
   type: 'GOT_SCORE',
   score,
   timer,
-  difficultyScore,
-});
-export const difficultyAct = (dif) => ({
-  type: 'DIFFICULTY',
-  dif,
+  difficulty,
 });
 export const successApi = (data) => ({ type: 'SUCCESS_API', data });
 export const successApiToken = (data) => ({ type: 'SUCCESS_API_TOKEN', data });
