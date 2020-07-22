@@ -14,7 +14,6 @@ const INITIAL_STATE = {
 };
 
 const difficulty = (dif) => {
-  console.log(dif)
   if (dif === 'easy') {
     return 1;
   } else if (dif === 'medium') {
@@ -23,9 +22,8 @@ const difficulty = (dif) => {
   return 3;
 };
 
-const ScoreCalculator = (score, timer, difficulty) => {
-  const newScore = score + (10 + (timer * difficulty));
-  console.log(difficulty);
+const ScoreCalculator = (score, timer, difficultyScore) => {
+  const newScore = score + (10 + (timer * difficultyScore));
   return newScore;
 };
 

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { makingScore, difficultyAct } from '../actions';
+import { makingScore } from '../actions';
 
 const Click = (
   score,
@@ -13,9 +13,9 @@ const Click = (
 };
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, difficultyScore, gotScore } = props;
+  const { data, index, score, timer, gotScore } = props;
   const resposta = data.results[index];
-  const difficulty = resposta.difficulty
+  const difficulty = resposta.difficulty;
   return (
     <div>
       <button
@@ -39,7 +39,6 @@ CorrectAnswer.propTypes = {
   data: PropTypes.shape({
     results: PropTypes.arrayOf(Object).isRequired,
   }).isRequired,
-  difficulty: PropTypes.func.isRequired,
   difficultyScore: PropTypes.number.isRequired,
   gotScore: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
