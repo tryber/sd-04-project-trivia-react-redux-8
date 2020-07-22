@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Header from './header';
 
 const Feedback = (props) => {
-  const {Id, score, imageSrc, acertos } = props;
+  const { Id, score, imageSrc, acertos } = props;
   return (
     <div>
       <Header />
@@ -40,7 +40,7 @@ Feedback.protoTypes = {
   imageSrc: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
   acertos: PropTypes.number.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,

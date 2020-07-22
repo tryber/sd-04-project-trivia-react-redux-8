@@ -48,7 +48,7 @@ function listaReducers(state = INITIAL_STATE, action) {
       return {
         ...state,
         score: ScoreCalculator(action.score, action.timer, difficulty(action.difficulty)),
-        acertos: (action.acertos + 1), 
+        acertos: (action.acertos + 1),
       };
     case 'NEXT_QUESTION':
       return { ...state, index: (action.index + 1), freeze: false, timer: 30 };

@@ -40,6 +40,7 @@ CorrectAnswer.propTypes = {
   index: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
   timer: PropTypes.number.isRequired,
+  acertos: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
