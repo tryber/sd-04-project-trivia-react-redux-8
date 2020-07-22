@@ -40,7 +40,7 @@ Feedback.propTypes = {
   acertos: PropTypes.number.isRequired,
   imageSrc: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
-}
+};
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
