@@ -4,30 +4,25 @@ import { connect } from 'react-redux';
 import { makingScore, difficultyAct } from '../actions';
 
 const Click = (
-  data,
-  index,
   score,
   timer,
-  difficultyScore,
   difficulty,
   gotScore,
 ) => {
-  gotScore(score, timer, difficultyScore);
+  gotScore(score, timer, difficulty);
 };
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, difficultyScore, difficulty, gotScore } = props;
+  const { data, index, score, timer, difficultyScore, gotScore } = props;
   const resposta = data.results[index];
+  const difficulty = resposta.difficulty
   return (
     <div>
       <button
         onClick={() =>
           Click(
-            data,
-            index,
             score,
             timer,
-            difficultyScore,
             difficulty,
             gotScore,
           )
@@ -57,9 +52,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  difficulty: (dif) => dispatch(difficultyAct(dif)),
-  gotScore: (score, timer, difficultyScore) =>
-    dispatch(makingScore(score, timer, difficultyScore)),
+  gotScore: (score, timer, difficulty) =>
+    dispatch(makingScore(score, timer, difficulty)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CorrectAnswer);

@@ -11,10 +11,10 @@ const INITIAL_STATE = {
   index: 0,
   score: 0,
   timer: 30,
-  difficultyScore: 0,
 };
 
 const difficulty = (dif) => {
+  console.log(dif)
   if (dif === 'easy') {
     return 1;
   } else if (dif === 'medium') {
@@ -23,8 +23,9 @@ const difficulty = (dif) => {
   return 3;
 };
 
-const ScoreCalculator = (score, timer, difficultyScore) => {
-  const newScore = score + (10 + (timer * difficultyScore));
+const ScoreCalculator = (score, timer, difficulty) => {
+  const newScore = score + (10 + (timer * difficulty));
+  console.log(difficulty);
   return newScore;
 };
 
@@ -45,10 +46,8 @@ function listaReducers(state = INITIAL_STATE, action) {
     case 'GOT_SCORE':
       return {
         ...state,
-        score: ScoreCalculator(action.score, action.timer, action.difficultyScore),
+        score: ScoreCalculator(action.score, action.timer, difficulty(action.difficulty)),
       };
-    case 'DIFFICULTY':
-      return { ...state, difficultyScore: difficulty(action.dif) };
     case 'NEXT_QUESTION':
       return { ...state, index: (action.index + 1) };
     default:
