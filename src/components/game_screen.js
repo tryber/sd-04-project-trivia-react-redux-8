@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Header from './header';
 import Perguntas from './Perguntas';
 import Respostas from './respostas';
@@ -8,8 +9,8 @@ import { nextPage } from '../actions/index.js';
 import Timer from './timer';
 
 const GameScreen = (props) => {
-  const { next, index } = props;
-
+  const { next, index, freeze } = props;
+  if (index === 5) return <Redirect to="/feedback" />;
   return (
     <div>
       <Header />
@@ -17,9 +18,17 @@ const GameScreen = (props) => {
         <Perguntas />
         <Respostas />
       </div>
-      <button data-testid="btn-next" className="buttonNext" onClick={() => next(index)}>
-        Próxima Pergunta
-      </button>
+      {freeze === true ? (
+        <button
+          data-testid="btn-next"
+          className="buttonNext"
+          onClick={() => next(index)}
+        >
+          Próxima Pergunta
+        </button>
+      ) : (
+        <p>Clique na resposta para habilitar o botão de próxima pergunta</p>
+      )}
       <div>
         <Timer />
       </div>
@@ -28,6 +37,7 @@ const GameScreen = (props) => {
 };
 
 GameScreen.propTypes = {
+  freeze: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
   next: PropTypes.func.isRequired,
 };
@@ -39,6 +49,5 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   next: (index) => dispatch(nextPage(index)),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameScreen);
