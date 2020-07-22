@@ -16,7 +16,7 @@ const Timer = (props) => {
     </div>
   ) : (
     <div>
-      <p>{freezeScreen()}Time's up</p>
+      <p>{freezeScreen()}Times up</p>
     </div>
   );
 };
