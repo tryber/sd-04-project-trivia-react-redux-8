@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { resetAct } from '../actions';
 
 const Ranking = (props) => {
-  const { reset } = props
+  const { reset } = props;
   return (
     <div>
       <h1 data-testid="ranking-title">Ranking</h1>
@@ -16,6 +17,10 @@ const Ranking = (props) => {
       <p>rankingList</p>
     </div>
   );
+};
+
+Ranking.propTypes = {
+  reset: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

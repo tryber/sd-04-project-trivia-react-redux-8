@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makingScore, freezeAct } from '../actions';
 
-const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos, Id) => {
+const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos) => {
   gotScore(score, timer, difficulty, acertos);
   freezeScreen();
 };
@@ -18,8 +18,8 @@ const CorrectAnswer = (props) => {
       assertions: acertos,
       score,
       gravatarEmail: Email,
-    }
- };
+    },
+  };
   localStorage.setItem('state', JSON.stringify(state));
   return (
     <div>
@@ -44,14 +44,14 @@ CorrectAnswer.propTypes = {
   Id: PropTypes.number.isRequired,
   acertos: PropTypes.number.isRequired,
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(Object).isRequired
+    results: PropTypes.arrayOf(Object).isRequired,
   }).isRequired,
   freeze: PropTypes.bool.isRequired,
   freezeScreen: PropTypes.func.isRequired,
   gotScore: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
-  timer: PropTypes.number.isRequired
+  timer: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({

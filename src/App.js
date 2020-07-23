@@ -4,7 +4,6 @@ import './App.css';
 import GameScreen from './components/game_screen';
 import Login from './components/Initial_Input';
 import Config from './components/Config';
-import ButtonConfig from './components/ButtonConfig';
 import Feedback from './components/Feedback';
 import Ranking from './components/Ranking';
 

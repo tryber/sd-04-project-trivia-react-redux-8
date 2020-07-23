@@ -41,7 +41,7 @@ GameScreen.propTypes = {
   Id: PropTypes.number.isRequired,
   freeze: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
-  next: PropTypes.func.isRequired
+  next: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
