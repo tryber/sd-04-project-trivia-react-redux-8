@@ -14,6 +14,7 @@ const BtnFalse = () => (
 const BtnTrue = (token, getToken, login, getGravatar, Email) => {
   const Log = (tokenReal) => {
     getToken();
+    localStorage.setItem("token", tokenReal)
     getGravatar(Email);
     login(tokenReal);
   };

@@ -3,13 +3,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makingScore, freezeAct } from '../actions';
 
-const Click = (score, timer, difficulty, gotScore, freezeScreen) => {
-  gotScore(score, timer, difficulty);
+const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos) => {
+  gotScore(score, timer, difficulty, acertos);
   freezeScreen();
 };
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, gotScore, freeze, freezeScreen } = props;
+  const { data, index, score, timer, gotScore, freeze, freezeScreen, acertos } = props;
   const resposta = data.results[index];
   const difficulty = resposta.difficulty;
   return (
@@ -20,7 +20,7 @@ const CorrectAnswer = (props) => {
         </button>
       ) : (
         <button
-          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen)}
+          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen, acertos)}
           data-testid="correct-answer"
         >
           {resposta.correct_answer}
@@ -47,8 +47,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  gotScore: (score, timer, difficulty) =>
-    dispatch(makingScore(score, timer, difficulty)),
+  gotScore: (score, timer, difficulty, acertos) =>
+    dispatch(makingScore(score, timer, difficulty, acertos)),
   freezeScreen: () => {
     dispatch(freezeAct());
   },

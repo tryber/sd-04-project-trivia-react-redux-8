@@ -9,7 +9,7 @@ const WrongAnswer = (props) => {
   const resposta = data.results[index].incorrect_answers[i];
   return (
     <div>
-      {freeze === true ? <button data-testid style={{ border: '3px solid rgb(255, 0, 0)' }} disabled={testid}>{resposta}</button> : (
+      {freeze === true ? <button data-testid={testid} style={{ border: '3px solid rgb(255, 0, 0)' }} disabled>{resposta}</button> : (
         <button onClick={freezeScreen} data-testid={testid}>{resposta}</button>
       )}
     </div>
