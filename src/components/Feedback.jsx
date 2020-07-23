@@ -8,13 +8,13 @@ const Feedback = (props) => {
   return (
     <div>
       <Header />
-      <h1 data-testid="feedback-test">
+      <h1 data-testid="feedback-text">
         {acertos <= 2 ? 'Podia ser melhor...' : 'Mandou bem!'}
       </h1>
-      <h3 data-testid="feedback-total-question">
+      <h3 data-testid="feedback-total-score">
         Você acertou um total de {acertos}!
       </h3>
-      <h3 data-testid="feedback-total-score">Um total de {index}</h3>
+      <h3 data-testid="feedback-total-question">Um total de {index}</h3>
       <img
         src="http://www.abrhce.com.br/wp-content/uploads/2017/03/feedback.jpg"
         alt="Minha Imagem"
@@ -23,7 +23,6 @@ const Feedback = (props) => {
       />
 
       <Link to="/ranking">
-        btn-ranking
         <button data-testid="btn-ranking">Ver Ranking</button>
       </Link>
       <Link to="/">
