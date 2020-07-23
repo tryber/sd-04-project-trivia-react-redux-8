@@ -32,8 +32,8 @@ const Login = (props) => {
   const state = {
    player: {
      name: Id,
-     assertions: acertos,
-     score: score,
+     assertions: 0,
+     score: 0,
      gravatarEmail: Email
    }
 }

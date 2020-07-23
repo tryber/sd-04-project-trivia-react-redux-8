@@ -5,7 +5,7 @@ import Header from '../components/header/index';
 import { resetAct } from '../actions';
 
 const Feedback = (props) => {
-  const { acertos, index, reset } = props;
+  const { acertos, index, reset, score } = props;
   return (
     <div>
       <Header />
@@ -13,9 +13,9 @@ const Feedback = (props) => {
         {acertos <= 2 ? 'Podia ser melhor...' : 'Mandou bem!'}
       </h1>
       <h3 data-testid="feedback-total-score">
-{acertos}
+{score}
       </h3>
-      <h3 data-testid="feedback-total-question">{index}</h3>
+      <h3 data-testid="feedback-total-question">{acertos}</h3>
       <img
         src="http://www.abrhce.com.br/wp-content/uploads/2017/03/feedback.jpg"
         alt="Minha Imagem"
