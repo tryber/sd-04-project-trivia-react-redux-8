@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -33,6 +34,13 @@ const Feedback = (props) => {
     </div>
   );
 };
+
+Feedback.propTypes = {
+  acertos: PropTypes.number,
+  index: PropTypes.number.isRequired,
+  reset: PropTypes.func,
+  score: PropTypes.number.isRequired,
+}
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
