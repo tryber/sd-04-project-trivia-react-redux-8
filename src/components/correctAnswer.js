@@ -3,10 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makingScore, freezeAct } from '../actions';
 
-const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos, Id, Email) => {
+const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos, Id) => {
   gotScore(score, timer, difficulty, acertos);
   freezeScreen();
-
 };
 
 const CorrectAnswer = (props) => {
@@ -17,10 +16,10 @@ const CorrectAnswer = (props) => {
     player: {
       name: Id,
       assertions: acertos,
-      score: score,
-      gravatarEmail: Email
+      score,
+      gravatarEmail: Email,
     }
- }
+ };
   localStorage.setItem('state', JSON.stringify(state));
   return (
     <div>
@@ -30,7 +29,7 @@ const CorrectAnswer = (props) => {
         </button>
       ) : (
         <button
-          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen, acertos, Id, Email)}
+          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen, acertos, Id)}
           data-testid="correct-answer"
         >
           {resposta.correct_answer}
@@ -41,15 +40,18 @@ const CorrectAnswer = (props) => {
 };
 
 CorrectAnswer.propTypes = {
+  Email: PropTypes.string.isRequired,
+  Id: PropTypes.number.isRequired,
+  acertos: PropTypes.number.isRequired,
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(Object).isRequired,
+    results: PropTypes.arrayOf(Object).isRequired
   }).isRequired,
   freeze: PropTypes.bool.isRequired,
   freezeScreen: PropTypes.func.isRequired,
   gotScore: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
-  timer: PropTypes.number.isRequired,
+  timer: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({
