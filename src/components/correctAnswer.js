@@ -3,15 +3,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makingScore, freezeAct } from '../actions';
 
-const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos) => {
+const Click = (score, timer, difficulty, gotScore, freezeScreen, acertos, Id, Email) => {
   gotScore(score, timer, difficulty, acertos);
   freezeScreen();
+
 };
 
 const CorrectAnswer = (props) => {
-  const { data, index, score, timer, gotScore, freeze, freezeScreen, acertos } = props;
+  const { data, index, score, timer, gotScore, freeze, freezeScreen, acertos, Id, Email } = props;
   const resposta = data.results[index];
   const difficulty = resposta.difficulty;
+  const state = {
+    player: {
+      name: Id,
+      assertions: acertos,
+      score: score,
+      gravatarEmail: Email
+    }
+ }
+  localStorage.setItem('state', JSON.stringify(state));
   return (
     <div>
       {freeze === true ? (
@@ -20,7 +30,7 @@ const CorrectAnswer = (props) => {
         </button>
       ) : (
         <button
-          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen, acertos)}
+          onClick={() => Click(score, timer, difficulty, gotScore, freezeScreen, acertos, Id, Email)}
           data-testid="correct-answer"
         >
           {resposta.correct_answer}

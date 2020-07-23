@@ -9,9 +9,16 @@ import { nextPage } from '../actions/index.js';
 import Timer from './timer';
 
 const GameScreen = (props) => {
-  const { next, index, freeze, Id } = props;
+  const { next, index, freeze, Id, acertos, score, Email } = props;
+  const player = {
+    name: Id,
+    assertions: acertos,
+    score: score,
+    gravatarEmail: Email,
+  };
+
   if (index === 5) return <Redirect to="/feedback" />;
-  if (!Id) return <Redirect to="/" />
+  if (!Id) return <Redirect to="/" />;
   return (
     <div>
       <Header />

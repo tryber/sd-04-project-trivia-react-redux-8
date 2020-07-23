@@ -2,6 +2,7 @@ import getTriviaApi from '../services/getTriviaApi';
 import GetTokenAPI from '../services/GET_TOKEN';
 
 export const requestApi = () => ({ type: 'REQUEST_API' });
+export const resetAct = () => ({ type: 'RESET' });
 export const freezeAct = () => ({ type: 'FREEZE' });
 export const AddAssignment = ({ value, name }) => ({
   type: 'INPUT',

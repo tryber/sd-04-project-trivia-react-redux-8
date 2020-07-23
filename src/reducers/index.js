@@ -33,6 +33,8 @@ function listaReducers(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'REQUEST_API':
       return { ...state, isFetching: true };
+    case 'RESET':
+      return INITIAL_STATE;
     case 'INPUT':
       return { ...state, [action.name]: action.value };
     case 'TIMER_CHANGE':
