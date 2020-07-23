@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import CorrectAnswer from './correctAnswer';
@@ -27,9 +27,9 @@ const Respostas = (props) => {
 Respostas.propTypes = {
   data: PropTypes.shape({
     results: PropTypes.arrayOf(Object).isRequired,
-  }),
-  index: PropTypes.number.isRequired
-}
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   ...state.listaReducers,
