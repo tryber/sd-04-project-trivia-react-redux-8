@@ -14,6 +14,7 @@ const BtnFalse = () => (
 const BtnTrue = (token, getToken, login, getGravatar, Email) => {
   const Log = (tokenReal) => {
     getToken();
+    localStorage.setItem('token', tokenReal);
     getGravatar(Email);
     login(tokenReal);
   };
@@ -27,7 +28,11 @@ const BtnTrue = (token, getToken, login, getGravatar, Email) => {
 
 const Login = (props) => {
   const { add, Id, Email, login, getToken, token, shouldRedirect, getGravatar } = props;
-  if (shouldRedirect) return <Redirect to="/game/" />;
+  const state = { player: { name: Id, assertions: 0, score: 0, gravatarEmail: Email } };
+  if (shouldRedirect) {
+    localStorage.setItem('state', JSON.stringify(state));
+    return <Redirect to="/game/" />;
+  }
   return (
     <div>
       <ButtonConfig />
@@ -54,11 +59,11 @@ Login.propTypes = {
   Email: PropTypes.string.isRequired,
   Id: PropTypes.string.isRequired,
   add: PropTypes.func.isRequired,
+  getGravatar: PropTypes.func.isRequired,
   getToken: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   shouldRedirect: PropTypes.bool.isRequired,
   token: PropTypes.string.isRequired,
-  getGravatar: PropTypes.func.isRequired,
 };
 
 

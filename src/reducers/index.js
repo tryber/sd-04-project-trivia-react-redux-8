@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   score: 0,
   timer: 30,
   freeze: false,
-  question: 0,
+  acertos: 0,
 };
 
 const difficulty = (dif) => {
@@ -33,6 +33,8 @@ function listaReducers(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'REQUEST_API':
       return { ...state, isFetching: true };
+    case 'RESET':
+      return INITIAL_STATE;
     case 'INPUT':
       return { ...state, [action.name]: action.value };
     case 'TIMER_CHANGE':
@@ -47,6 +49,7 @@ function listaReducers(state = INITIAL_STATE, action) {
       return {
         ...state,
         score: ScoreCalculator(action.score, action.timer, difficulty(action.difficulty)),
+        acertos: (action.acertos + 1),
       };
     case 'NEXT_QUESTION':
       return { ...state, index: (action.index + 1), freeze: false, timer: 30 };

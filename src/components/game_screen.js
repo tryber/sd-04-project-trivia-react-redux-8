@@ -9,8 +9,9 @@ import { nextPage } from '../actions/index.js';
 import Timer from './timer';
 
 const GameScreen = (props) => {
-  const { next, index, freeze } = props;
+  const { next, index, freeze, Id } = props;
   if (index === 5) return <Redirect to="/feedback" />;
+  if (!Id) return <Redirect to="/" />;
   return (
     <div>
       <Header />
@@ -37,6 +38,7 @@ const GameScreen = (props) => {
 };
 
 GameScreen.propTypes = {
+  Id: PropTypes.number.isRequired,
   freeze: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
   next: PropTypes.func.isRequired,

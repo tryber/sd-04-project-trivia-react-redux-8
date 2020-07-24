@@ -7,7 +7,7 @@ const Header = (props) => {
   return (
     <div>
       <h3 data-testid="header-player-name">Jogador: {Id}</h3>
-      <p data-testid="header-score">Score: {score}</p>
+      <p data-testid="header-score">{score}</p>
       <img data-testid="header-profile-picture" src={imageSrc} alt="Profile" />
     </div>
   );
