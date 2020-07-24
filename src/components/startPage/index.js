@@ -7,17 +7,16 @@ import Feedback from '../Feedback';
 import Ranking from '../Ranking';
 import GameScreen from '../game_screen';
 
-
 const StartPage = () => (
   <div className="App-header">
     <img src={logo} className="App-logo" alt="logo" />
-      <Switch>
-        <Route exact path="/" component={Login} />
-        <Route path="/game" component={GameScreen} />
-        <Route path="/config" component={Config} />
-        <Route path="/ranking" component={Ranking} />
-        <Route path="/feedback" component={Feedback} />
-      </Switch>
+    <Switch>
+      <Route exact path="/" component={Login} />
+      <Route path="/game" component={GameScreen} />
+      <Route path="/config" component={Config} />
+      <Route path="/ranking" component={Ranking} />
+      <Route path="/feedback" component={Feedback} />
+    </Switch>
   </div>
 );
 
